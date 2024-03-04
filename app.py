@@ -17,24 +17,23 @@ app.config['MAIL_DEFAULT_SENDER'] = 'kortar.inc@gmail.com'
 mail = Mail(app)
 
 @app.route('/', methods=['POST'])
-def index():
-    return 'Hello, CORS is enabled!'
-###def send_email():
-    #data = request.json
-    #recipient_email = data.get('recipient_email')
-    #subject = data.get('subject')
-    #body = data.get('body')
 
-    #try:
+def send_email():
+    data = request.json
+    recipient_email = data.get('recipient_email')
+    subject = data.get('subject')
+    body = data.get('body')
+
+    try:
         # Create a messagegunicorn
-     #   message = Message(subject=subject, recipients=[recipient_email], body=body)
+       message = Message(subject=subject, recipients=[recipient_email], body=body)
 
         # Send the email
-    #    mail.send(message)
+       mail.send(message)
 
-   #     return jsonify({'success': True, 'message': 'Email sent successfully'})
- #   except Exception as e:
-#        return jsonify({'success': False, 'message': str(e)})
+       return jsonify({'success': True, 'message': 'Email sent successfully'})
+     except Exception as e:
+        return jsonify({'success': False, 'message': str(e)})
 
 if __name__ == '__main__':
     app.run(debug=True)
