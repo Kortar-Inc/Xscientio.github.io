@@ -35,5 +35,11 @@ def send_email():
        return jsonify({'success': True, 'message': 'Email sent successfully'})
      except Exception as e:
         return jsonify({'success': False, 'message': str(e)})
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    return response
 
 
