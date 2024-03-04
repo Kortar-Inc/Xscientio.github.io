@@ -16,7 +16,7 @@ app.config['MAIL_DEFAULT_SENDER'] = 'kortar.inc@gmail.com'
 
 mail = Mail(app)
 
-@app.route('/send_email', methods=['POST'])
+@app.route('/', methods=['POST'])
 def send_email():
     data = request.json
     recipient_email = data.get('recipient_email')
