@@ -3,7 +3,7 @@ from flask_mail import Mail, Message
 from flask_cors import CORS  # Import CORS from flask_cors
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": ["http://localhost:62765", "https://xsciento.com"]}}) # Enable CORS for all routes
+CORS(app, resources={r"/*": {"origins": ["http://127.0.0.1:63087", "https://xsciento.com"]}}) # Enable CORS for all routes
 
 # Flask-Mail configuration
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
