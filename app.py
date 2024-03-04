@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_mail import Mail, Message
-from flask_cors import CORS  # Import CORS from flask_cors
+from flask_cors import CORS
+from flask_cors import cross_origin# Import CORS from flask_cors
 
 app = Flask(__name__)
 CORS(app) # Enable CORS for all routes
@@ -17,7 +18,7 @@ app.config['MAIL_DEFAULT_SENDER'] = 'kortar.inc@gmail.com'
 mail = Mail(app)
 
 @app.route('/', methods=['POST'])
-
+@cross_origin()
 def send_email():
     data = request.json
     recipient_email = data.get('recipient_email')
