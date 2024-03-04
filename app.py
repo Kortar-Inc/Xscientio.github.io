@@ -18,7 +18,7 @@ app.config['MAIL_DEFAULT_SENDER'] = 'kortar.inc@gmail.com'
 mail = Mail(app)
 
 @app.route('/', methods=['POST'])
-@cross_origin()
+@cross_origin(supports_credentials=True, send_wildcard=True)
 def send_email():
     data = request.json
     recipient_email = data.get('recipient_email')
