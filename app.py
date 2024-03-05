@@ -3,7 +3,7 @@ from flask_mail import Mail, Message
 from flask_cors import CORS, cross_origin  # Import CORS from flask_cors
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app, supports_credentials=True)  # Enable CORS for all routes
 
 # Flask-Mail configuration
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
